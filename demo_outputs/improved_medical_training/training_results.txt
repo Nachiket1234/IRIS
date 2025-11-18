@@ -1,0 +1,88 @@
+================================================================================
+IRIS Training on Improved Quality 3D Medical Dataset (GPU)
+================================================================================
+
+Using device: cuda
+GPU: NVIDIA GeForce GTX 1650
+GPU Memory: 4.29 GB
+
+Model initialized:
+  - Base channels: 24
+  - Volume shape: 64×64×64
+  - Device: cuda
+
+Datasets created:
+  - Training: 30 volumes
+  - Validation: 12 volumes
+  - Test: 10 volumes
+
+Starting training...
+  - Total iterations: 50
+  - Batch size: 2
+  - Learning rate: 0.001
+
+
+Training completed!
+
+Checkpoint saved: demo_outputs\improved_medical_training\checkpoints\iris_iter_000050.pt
+
+================================================================================
+Evaluation Phase
+================================================================================
+
+
+[IN_DISTRIBUTION]
+  Dataset: improved_medical
+Strategy: one_shot
+                          Mean Dice: 0.4548 ± 0.1328
+                          Inference time: 0.0278s
+Strategy: context_ensemble
+                          Mean Dice: 0.4594 ± 0.1130
+                          Inference time: 0.1288s
+Strategy: object_retrieval
+                          Mean Dice: 0.4519 ± 0.1732
+                          Inference time: 0.0158s
+Strategy: in_context_tuning
+                          Mean Dice: 0.4480 ± 0.1694
+                          Inference time: 1.9933s
+
+[OUT_OF_DISTRIBUTION]
+  Dataset: improved_medical
+Strategy: one_shot
+                          Mean Dice: 0.4642 ± 0.1180
+                          Inference time: 0.0161s
+Strategy: context_ensemble
+                          Mean Dice: 0.4577 ± 0.1587
+                          Inference time: 0.1172s
+Strategy: object_retrieval
+                          Mean Dice: 0.4596 ± 0.1400
+                          Inference time: 0.0160s
+Strategy: in_context_tuning
+                          Mean Dice: 0.4605 ± 0.0989
+                          Inference time: 1.9756s
+
+[NOVEL_CLASSES]
+  Dataset: improved_medical
+Strategy: one_shot
+                          Mean Dice: 0.6125 ± 0.0731
+                          Inference time: 0.0179s
+Strategy: context_ensemble
+                          Mean Dice: 0.6104 ± 0.0996
+                          Inference time: 0.1179s
+Strategy: object_retrieval
+                          Mean Dice: 0.6099 ± 0.0929
+                          Inference time: 0.0163s
+Strategy: in_context_tuning
+                          Mean Dice: 0.6119 ± 0.0988
+                          Inference time: 1.3327s
+
+Metrics saved to: demo_outputs\improved_medical_training\metrics.json
+
+================================================================================
+Training and Evaluation Complete!
+================================================================================
+
+All results saved to: demo_outputs\improved_medical_training
+  - Training log: demo_outputs\improved_medical_training\training_results.txt
+  - Metrics JSON: demo_outputs\improved_medical_training\metrics.json
+  - Checkpoint: demo_outputs\improved_medical_training\checkpoints\iris_iter_000050.pt

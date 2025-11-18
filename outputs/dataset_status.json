@@ -1,0 +1,46 @@
+{
+  "acdc": {
+    "name": "acdc",
+    "path": "datasets\\acdc",
+    "exists": true,
+    "has_files": false,
+    "can_load": false,
+    "train_count": 0,
+    "val_count": 0,
+    "test_count": 0,
+    "error": "No volume records discovered for dataset acdc at datasets\\acdc"
+  },
+  "amos": {
+    "name": "amos",
+    "path": "datasets\\amos",
+    "exists": true,
+    "has_files": false,
+    "can_load": false,
+    "train_count": 0,
+    "val_count": 0,
+    "test_count": 0,
+    "error": "AMOS image directory not found: datasets\\amos\\imagesTr"
+  },
+  "msd_pancreas": {
+    "name": "msd_pancreas",
+    "path": "datasets\\msd_pancreas",
+    "exists": true,
+    "has_files": false,
+    "can_load": false,
+    "train_count": 0,
+    "val_count": 0,
+    "test_count": 0,
+    "error": "MSD Pancreas images not found at datasets\\msd_pancreas\\imagesTr"
+  },
+  "segthor": {
+    "name": "segthor",
+    "path": "datasets\\segthor",
+    "exists": true,
+    "has_files": false,
+    "can_load": false,
+    "train_count": 0,
+    "val_count": 0,
+    "test_count": 0,
+    "error": "SegTHOR images not found at datasets\\segthor\\images"
+  }
+}

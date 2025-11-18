@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Large model artifacts
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+
+# Generated datasets / secrets
+kaggle.json
+
+# Training/demo artefacts to keep local
+demo_outputs/**/checkpoints/
+outputs/checkpoints/
+outputs/**/*.npy
+
+# VSCode / editor cruft
+.vscode/
+.idea/
+
+# Python virtual environments
+.venv/
+env/
+venv/
+
+

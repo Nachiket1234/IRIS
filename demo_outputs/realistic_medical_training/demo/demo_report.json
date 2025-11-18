@@ -1,0 +1,439 @@
+{
+  "cases": [
+    {
+      "dataset": "realistic_medical",
+      "case_index": 0,
+      "class_ids": [
+        1,
+        2,
+        3
+      ],
+      "metrics": {
+        "one_shot": {
+          "dice_per_class": {
+            "1": 1.448435676953963e-10,
+            "2": 2.1978022179958145e-10,
+            "3": 1.7479460934222146e-10
+          },
+          "dice_mean": 1.798061283198038e-10,
+          "hausdorff_per_class": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "inference_time": 3.0412739000166766
+        },
+        "in_context_tuning": {
+          "dice_per_class": {
+            "1": 1.449275421894214e-10,
+            "2": 2.1987686671387507e-10,
+            "3": 1.7479460934222146e-10
+          },
+          "dice_mean": 1.798663440411019e-10,
+          "hausdorff_per_class": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "inference_time": 16.17681220002123
+        }
+      },
+      "visualizations": {}
+    },
+    {
+      "dataset": "realistic_medical",
+      "case_index": 1,
+      "class_ids": [
+        1,
+        2,
+        3
+      ],
+      "metrics": {
+        "one_shot": {
+          "dice_per_class": {
+            "1": 0.0004308489733375609,
+            "2": 1.587553560833399e-10,
+            "3": 0.002135991817340255
+          },
+          "dice_mean": 0.0008556136745028198,
+          "hausdorff_per_class": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "inference_time": 2.237581900000805
+        },
+        "in_context_tuning": {
+          "dice_per_class": {
+            "1": 0.00043094181455671787,
+            "2": 1.588057740864457e-10,
+            "3": 0.002136752475053072
+          },
+          "dice_mean": 0.0008558981935493648,
+          "hausdorff_per_class": {
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0
+          },
+          "inference_time": 15.370755999989342
+        }
+      },
+      "visualizations": {}
+    }
+  ],
+  "evaluation": {
+    "in_distribution": {
+      "realistic_medical": {
+        "strategies": {
+          "one_shot": {
+            "dice_mean": 0.0024592873887741007,
+            "dice_mean_runs_std": 0.002245692325232085,
+            "dice_std": 0.007614629284944385,
+            "dice_std_runs_std": 0.007024114078376442,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 2.316198437503772,
+            "inference_time_mean_runs_std": 0.0401556625001831,
+            "inference_time_std": 0.1510506818923456,
+            "inference_time_std_runs_std": 0.021130412180879146,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 0.00010765448001814719,
+              "2": 0.006736874010447914,
+              "3": 0.0005333337806019359
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          },
+          "context_ensemble": {
+            "dice_mean": 0.00027212206623516977,
+            "dice_mean_runs_std": 0.00014694762649014592,
+            "dice_std": 0.00045195982966106385,
+            "dice_std_runs_std": 0.00017059380479622632,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 3.7808634625071136,
+            "inference_time_mean_runs_std": 0.010718187502789078,
+            "inference_time_std": 0.1819760538508301,
+            "inference_time_std_runs_std": 0.028118398458321495,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 5.3902772193052326e-05,
+              "2": 0.0004959387524169582,
+              "3": 0.00026652474755476524
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          },
+          "object_retrieval": {
+            "dice_mean": 0.0025047228700714186,
+            "dice_mean_runs_std": 0.0021657895267708227,
+            "dice_std": 0.007568210159661248,
+            "dice_std_runs_std": 0.00695621149498038,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 2.826146412502567,
+            "inference_time_mean_runs_std": 0.07851496250077616,
+            "inference_time_std": 0.26079858924154636,
+            "inference_time_std_runs_std": 0.09253999261489983,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 0.00010780529669800025,
+              "2": 0.006873313711743153,
+              "3": 0.0005330493424508722
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          },
+          "in_context_tuning": {
+            "dice_mean": 0.0003207833142369054,
+            "dice_mean_runs_std": 0.00010714951349655166,
+            "dice_std": 0.0006853127561043948,
+            "dice_std_runs_std": 9.47832886595279e-05,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 16.394038749993342,
+            "inference_time_mean_runs_std": 0.5729771000005712,
+            "inference_time_std": 0.6720827101108307,
+            "inference_time_std_runs_std": 0.22175222541616998,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 0.0001617311012872876,
+              "2": 2.3210460116385168e-10,
+              "3": 0.000800618604350406
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          }
+        }
+      }
+    },
+    "out_of_distribution": {
+      "realistic_medical": {
+        "strategies": {
+          "one_shot": {
+            "dice_mean": 0.004694781498983502,
+            "dice_mean_runs_std": 0.00013322965241968632,
+            "dice_std": 0.014702605083584785,
+            "dice_std_runs_std": 0.00010234210640192032,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 2.3146203124997555,
+            "inference_time_mean_runs_std": 0.0896295624988852,
+            "inference_time_std": 0.09255799369994407,
+            "inference_time_std_runs_std": 0.04705030978802295,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 5.386790683869179e-05,
+              "2": 0.013357227379075602,
+              "3": 0.0006732492592276401
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          },
+          "context_ensemble": {
+            "dice_mean": 0.006809526355937123,
+            "dice_mean_runs_std": 0.0023072611074894667,
+            "dice_std": 0.01735327811911702,
+            "dice_std_runs_std": 0.002667465712875128,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 3.23185134999585,
+            "inference_time_mean_runs_std": 0.07421330000579474,
+            "inference_time_std": 0.09760988209051313,
+            "inference_time_std_runs_std": 0.08340114547761121,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 2.146085843757195e-10,
+              "2": 0.020428579359883584,
+              "3": 3.267755042252185e-10
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          },
+          "object_retrieval": {
+            "dice_mean": 0.006855989711766597,
+            "dice_mean_runs_std": 0.006697068085486535,
+            "dice_std": 0.011674100984237157,
+            "dice_std_runs_std": 0.011314771618344821,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 2.217111012498208,
+            "inference_time_mean_runs_std": 0.007055237496388145,
+            "inference_time_std": 0.024850426257680698,
+            "inference_time_std_runs_std": 0.007923368998667963,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 5.382152115883214e-05,
+              "2": 0.020112120947435926,
+              "3": 0.0004020262508944786
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          },
+          "in_context_tuning": {
+            "dice_mean": 0.002459354465827346,
+            "dice_mean_runs_std": 0.002064645988866687,
+            "dice_std": 0.00767047845874913,
+            "dice_std_runs_std": 0.007010065455688164,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 15.865428050001356,
+            "inference_time_mean_runs_std": 0.13539842499812949,
+            "inference_time_std": 0.28735966127366996,
+            "inference_time_std_runs_std": 0.06360352764377025,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 5.386790431189878e-05,
+              "2": 0.006650474586216197,
+              "3": 0.0006737208355604377
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0,
+              "3": 0.0
+            }
+          }
+        }
+      }
+    },
+    "novel_classes": {
+      "realistic_medical": {
+        "strategies": {
+          "one_shot": {
+            "dice_mean": 0.00010266966066933142,
+            "dice_mean_runs_std": 0.00010266946107936187,
+            "dice_std": 0.00017782873155022978,
+            "dice_std_runs_std": 0.00017782869136487127,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 1.7214941500023997,
+            "inference_time_mean_runs_std": 0.0033723749984346796,
+            "inference_time_std": 0.027001324303878194,
+            "inference_time_std_runs_std": 0.007007810404608893,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 2.0671175188224922e-10,
+              "2": 0.0002053391152310475
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "context_ensemble": {
+            "dice_mean": 0.00010275407112203538,
+            "dice_mean_runs_std": 4.224420990794897e-08,
+            "dice_std": 0.0002718611212912947,
+            "dice_std_runs_std": 1.1172960512340069e-07,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 2.53057031249773,
+            "inference_time_mean_runs_std": 0.050362062494968995,
+            "inference_time_std": 0.0948602444438158,
+            "inference_time_std_runs_std": 0.039841116413187556,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 2.1401863441183888e-10,
+              "2": 0.00020550792199399565
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "object_retrieval": {
+            "dice_mean": 0.00015415210873470642,
+            "dice_mean_runs_std": 5.1355815230635926e-05,
+            "dice_std": 0.00031396132544614375,
+            "dice_std_runs_std": 4.198847454972565e-05,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 1.8835140750015853,
+            "inference_time_mean_runs_std": 0.08982390000164742,
+            "inference_time_std": 0.11239715502382382,
+            "inference_time_std_runs_std": 0.04390431294357923,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 2.189377689559846e-10,
+              "2": 0.0003083039899718851
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0
+            }
+          },
+          "in_context_tuning": {
+            "dice_mean": 0.00010271182691212744,
+            "dice_mean_runs_std": 0.0,
+            "dice_std": 0.0002717493916861713,
+            "dice_std_runs_std": 0.0,
+            "hausdorff_mean": 0.0,
+            "hausdorff_mean_runs_std": 0.0,
+            "hausdorff_std": 0.0,
+            "hausdorff_std_runs_std": 0.0,
+            "inference_time_mean": 11.557956962500612,
+            "inference_time_mean_runs_std": 0.1910822875033773,
+            "inference_time_std": 0.48190291920477785,
+            "inference_time_std_runs_std": 0.04659788774216472,
+            "memory_mb_mean": 0.0,
+            "memory_mb_mean_runs_std": 0.0,
+            "memory_mb_std": 0.0,
+            "memory_mb_std_runs_std": 0.0,
+            "per_class_dice": {
+              "1": 2.0132826308860707e-10,
+              "2": 0.00020542344880139854
+            },
+            "per_class_hausdorff": {
+              "1": 0.0,
+              "2": 0.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "dashboard": null,
+  "clinical_notes": {
+    "cross_modality": "Evaluate memory-bank initialisation when adapting from CT to MRI protocols.",
+    "multi_center": "Use evaluation splits reflecting scanner diversity; monitor Dice drop across centres.",
+    "few_shot": "Prefer context ensemble or in-context tuning when only a handful of references are available.",
+    "efficiency": "Bidirectional attention dominates latency; pre-cache embeddings for frequently observed classes."
+  }
+}

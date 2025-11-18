@@ -1,0 +1,68 @@
+{
+  "in_distribution_realistic_medical": {
+    "one_shot": {
+      "dice_mean": 0.0003567639214452356,
+      "dice_std": 0.0007160746899899095,
+      "inference_time": 1.6743586249976943
+    },
+    "context_ensemble": {
+      "dice_mean": 0.002515129279345274,
+      "dice_std": 0.007568144181277603,
+      "inference_time": 2.3262226874976477
+    },
+    "object_retrieval": {
+      "dice_mean": 0.0046082488261163235,
+      "dice_std": 0.015058551914989948,
+      "inference_time": 1.553985537495464
+    },
+    "in_context_tuning": {
+      "dice_mean": 0.004832507343962789,
+      "dice_std": 0.015135420951992273,
+      "inference_time": 12.364054537494667
+    }
+  },
+  "out_of_distribution_realistic_medical": {
+    "one_shot": {
+      "dice_mean": 0.0025629088195273653,
+      "dice_std": 0.007685258227866143,
+      "inference_time": 2.3190703124964784
+    },
+    "context_ensemble": {
+      "dice_mean": 0.0026376107707619667,
+      "dice_std": 0.008027298375964165,
+      "inference_time": 3.2613361874900875
+    },
+    "object_retrieval": {
+      "dice_mean": 0.004772587213665247,
+      "dice_std": 0.010274756379658356,
+      "inference_time": 2.25873073749608
+    },
+    "in_context_tuning": {
+      "dice_mean": 0.0046575248197768815,
+      "dice_std": 0.010204680176684633,
+      "inference_time": 16.024569424997026
+    }
+  },
+  "novel_classes_realistic_medical": {
+    "one_shot": {
+      "dice_mean": 0.00010271189760171356,
+      "dice_std": 0.00017790194223846374,
+      "inference_time": 1.714386325002124
+    },
+    "context_ensemble": {
+      "dice_mean": 5.1398263430639524e-05,
+      "dice_std": 0.00013598644761721873,
+      "inference_time": 2.5541313874964544
+    },
+    "object_retrieval": {
+      "dice_mean": 5.139825254928815e-05,
+      "dice_std": 0.00013598644764277988,
+      "inference_time": 1.7264171750030073
+    },
+    "in_context_tuning": {
+      "dice_mean": 0.0001541098827146925,
+      "dice_std": 0.0003138881584163755,
+      "inference_time": 11.225045337490883
+    }
+  }
+}

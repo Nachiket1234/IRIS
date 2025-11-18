@@ -384,7 +384,17 @@ class EpisodicTrainer:
         self.optimizer.step()
 
         if self.model.memory_bank is not None:
-            self.model.update_memory_bank(task_embeddings.detach(), batch["class_ids"])
+            # Update memory bank per sample to handle variable class counts
+            batch_size = task_embeddings.shape[0]
+            for i in range(batch_size):
+                sample_embeddings = task_embeddings[i].detach()  # (K, C)
+                sample_class_ids = batch["class_ids"][i]  # List[int] of length K
+                # Only update if we have valid embeddings and class IDs
+                if sample_embeddings.shape[0] == len(sample_class_ids) and len(sample_class_ids) > 0:
+                    self.model.update_memory_bank(
+                        sample_embeddings.unsqueeze(0),  # (1, K, C)
+                        [sample_class_ids]  # List[List[int]]
+                    )
 
         return float(loss.item())
 
