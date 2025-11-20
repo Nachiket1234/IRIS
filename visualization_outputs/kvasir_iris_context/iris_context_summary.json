@@ -1,0 +1,32 @@
+{
+  "dataset": "kvasir",
+  "num_cases": 5,
+  "average_dice": 0.27013815864920615,
+  "results": [
+    {
+      "case_id": 1,
+      "dice_score": 0.3377797603607178,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 2,
+      "dice_score": 0.19873306155204773,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 3,
+      "dice_score": 0.3668805956840515,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 4,
+      "dice_score": 0.4299427270889282,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 5,
+      "dice_score": 0.017354648560285568,
+      "num_support_images": 3
+    }
+  ]
+}

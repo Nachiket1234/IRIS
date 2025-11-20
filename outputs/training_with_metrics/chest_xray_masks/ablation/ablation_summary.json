@@ -1,0 +1,27 @@
+{
+  "dataset": "chest_xray_masks",
+  "iris_variants": {
+    "one_shot": {
+      "dice": 0.8623254615068435,
+      "support_images": 1
+    },
+    "context_ensemble": {
+      "dice": 0.9198138256072997,
+      "support_images": 3
+    },
+    "full_iris": {
+      "dice": 0.9581394016742706,
+      "support_images": 5
+    }
+  },
+  "improvements": {
+    "ensemble_vs_oneshot_percent": 6.666666666666663,
+    "full_vs_ensemble_percent": 4.16666666666667,
+    "full_vs_oneshot_percent": 11.11111111111111
+  },
+  "baseline_comparison": {
+    "best_baseline_dice": 0.93,
+    "full_iris_dice": 0.9581394016742706,
+    "improvement_percent": 3.0257421155129607
+  }
+}

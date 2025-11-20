@@ -1,0 +1,56 @@
+{
+  "dataset": "brain_tumor",
+  "num_cases": 5,
+  "average_dice": {
+    "oneshot": 0.6351649582386016,
+    "ensemble": 0.6510617017745972,
+    "full": 0.6456023633480072
+  },
+  "improvements": {
+    "ensemble_vs_oneshot": 2.5027740163877104,
+    "full_vs_oneshot": 1.643258963521845,
+    "memory_bank_contribution": -0.8385285775080089
+  },
+  "cases": [
+    {
+      "case": 1,
+      "oneshot_dice": 0.5989965200424194,
+      "ensemble_dice": 0.5806195139884949,
+      "full_dice": 0.6115652322769165,
+      "ensemble_improvement": -3.0679654119898974,
+      "full_improvement": 2.0982947002107766
+    },
+    {
+      "case": 2,
+      "oneshot_dice": 0.4912598431110382,
+      "ensemble_dice": 0.6182854771614075,
+      "full_dice": 0.6695187091827393,
+      "ensemble_improvement": 25.857117334473028,
+      "full_improvement": 36.28606501659645
+    },
+    {
+      "case": 3,
+      "oneshot_dice": 0.8626437783241272,
+      "ensemble_dice": 0.8651995658874512,
+      "full_dice": 0.7729447484016418,
+      "ensemble_improvement": 0.2962738070503617,
+      "full_improvement": -10.398154160080443
+    },
+    {
+      "case": 4,
+      "oneshot_dice": 0.5340452790260315,
+      "ensemble_dice": 0.5041260719299316,
+      "full_dice": 0.49470898509025574,
+      "ensemble_improvement": -5.602372733387925,
+      "full_improvement": -7.365722623279355
+    },
+    {
+      "case": 5,
+      "oneshot_dice": 0.6888793706893921,
+      "ensemble_dice": 0.6870778799057007,
+      "full_dice": 0.6792741417884827,
+      "ensemble_improvement": -0.2615103398855702,
+      "full_improvement": -1.3943266861507329
+    }
+  ]
+}

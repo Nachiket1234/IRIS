@@ -1,0 +1,57 @@
+{
+  "dataset": "kvasir",
+  "num_cases": 10,
+  "average_dice": 0.6417541714385152,
+  "results": [
+    {
+      "case_id": 1,
+      "dice_score": 0.5149346590042114,
+      "output_file": "case_001_comparison.png"
+    },
+    {
+      "case_id": 2,
+      "dice_score": 0.5755488276481628,
+      "output_file": "case_002_comparison.png"
+    },
+    {
+      "case_id": 3,
+      "dice_score": 0.7668511867523193,
+      "output_file": "case_003_comparison.png"
+    },
+    {
+      "case_id": 4,
+      "dice_score": 0.8474332690238953,
+      "output_file": "case_004_comparison.png"
+    },
+    {
+      "case_id": 5,
+      "dice_score": 0.0025828201323747635,
+      "output_file": "case_005_comparison.png"
+    },
+    {
+      "case_id": 6,
+      "dice_score": 0.7814205288887024,
+      "output_file": "case_006_comparison.png"
+    },
+    {
+      "case_id": 7,
+      "dice_score": 0.8092743158340454,
+      "output_file": "case_007_comparison.png"
+    },
+    {
+      "case_id": 8,
+      "dice_score": 0.8959394097328186,
+      "output_file": "case_008_comparison.png"
+    },
+    {
+      "case_id": 9,
+      "dice_score": 0.5725007653236389,
+      "output_file": "case_009_comparison.png"
+    },
+    {
+      "case_id": 10,
+      "dice_score": 0.6510559320449829,
+      "output_file": "case_010_comparison.png"
+    }
+  ]
+}

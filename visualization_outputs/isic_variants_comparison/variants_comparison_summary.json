@@ -1,0 +1,56 @@
+{
+  "dataset": "isic",
+  "num_cases": 5,
+  "average_dice": {
+    "oneshot": 1.0,
+    "ensemble": 1.0,
+    "full": 1.0
+  },
+  "improvements": {
+    "ensemble_vs_oneshot": 0.0,
+    "full_vs_oneshot": 0.0,
+    "memory_bank_contribution": 0.0
+  },
+  "cases": [
+    {
+      "case": 1,
+      "oneshot_dice": 1.0,
+      "ensemble_dice": 1.0,
+      "full_dice": 1.0,
+      "ensemble_improvement": 0.0,
+      "full_improvement": 0.0
+    },
+    {
+      "case": 2,
+      "oneshot_dice": 1.0,
+      "ensemble_dice": 1.0,
+      "full_dice": 1.0,
+      "ensemble_improvement": 0.0,
+      "full_improvement": 0.0
+    },
+    {
+      "case": 3,
+      "oneshot_dice": 1.0,
+      "ensemble_dice": 1.0,
+      "full_dice": 1.0,
+      "ensemble_improvement": 0.0,
+      "full_improvement": 0.0
+    },
+    {
+      "case": 4,
+      "oneshot_dice": 1.0,
+      "ensemble_dice": 1.0,
+      "full_dice": 1.0,
+      "ensemble_improvement": 0.0,
+      "full_improvement": 0.0
+    },
+    {
+      "case": 5,
+      "oneshot_dice": 1.0,
+      "ensemble_dice": 1.0,
+      "full_dice": 1.0,
+      "ensemble_improvement": 0.0,
+      "full_improvement": 0.0
+    }
+  ]
+}

@@ -63,8 +63,10 @@ def check_all_datasets(datasets_dir: Path = Path("datasets")) -> Dict[str, Dict[
     known_datasets = {
         "acdc": datasets_dir / "acdc",
         "amos": datasets_dir / "amos",
+        "chest_xray_masks": datasets_dir / "chest_xray_masks",
         "msd_pancreas": datasets_dir / "msd_pancreas",
         "segthor": datasets_dir / "segthor",
+        "isic": datasets_dir / "isic",
     }
     
     results = {}

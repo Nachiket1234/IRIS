@@ -1,0 +1,429 @@
+/* Metrics Page Specific Styles */
+
+.metrics-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.metrics-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.metrics-hero .hero-subtitle {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.metric-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
+    border-color: var(--primary-color);
+}
+
+.metric-card.highlight {
+    background: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
+    color: white;
+}
+
+.metric-card.highlight .metric-label,
+.metric-card.highlight .metric-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.metric-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+    margin: 0.5rem 0;
+}
+
+.metric-card.highlight .metric-value {
+    color: white;
+}
+
+.metric-value span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.metric-subtitle {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+/* Chart Container */
+.chart-container {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin: 2rem 0;
+}
+
+.chart-container canvas {
+    max-height: 400px;
+}
+
+/* Performance Table */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+.performance-table {
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-collapse: collapse;
+}
+
+.performance-table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.performance-table th {
+    padding: 1.25rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.performance-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+.performance-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.performance-table td {
+    padding: 1rem;
+    font-size: 0.9375rem;
+}
+
+.performance-table td.highlight {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.summary-row {
+    background: #f1f5f9 !important;
+    font-weight: 700;
+    border-top: 2px solid #cbd5e1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-blue {
+    background: rgba(0, 102, 255, 0.1);
+    color: #0066ff;
+}
+
+.badge-purple {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+.badge-teal {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+}
+
+.badge-green {
+    background: rgba(0, 184, 148, 0.1);
+    color: #00b894;
+}
+
+.badge-orange {
+    background: rgba(255, 159, 64, 0.1);
+    color: #ff9f40;
+}
+
+/* Strategy Grid */
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.strategy-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.strategy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.strategy-card:hover::before {
+    opacity: 1;
+}
+
+.strategy-card.recommended {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(0, 102, 255, 0.15);
+}
+
+.strategy-card.recommended::before {
+    opacity: 1;
+    background: linear-gradient(90deg, #0066ff 0%, #00d4ff 100%);
+}
+
+.strategy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.strategy-header h3 {
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin: 0;
+}
+
+.strategy-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.strategy-badge.fastest {
+    background: rgba(0, 184, 148, 0.1);
+    color: #00b894;
+}
+
+.strategy-badge.fast {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+}
+
+.strategy-badge.recommended {
+    background: rgba(0, 102, 255, 0.1);
+    color: #0066ff;
+}
+
+.strategy-badge.highest {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+.strategy-metric {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.metric-large {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.metric-unit {
+    display: block;
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+}
+
+.strategy-performance {
+    margin: 1.5rem 0;
+}
+
+.perf-bar {
+    background: linear-gradient(90deg, #0066ff 0%, #00d4ff 100%);
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-align: center;
+    transition: width 0.6s ease;
+}
+
+.strategy-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+}
+
+.strategy-features li {
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    color: #475569;
+}
+
+.strategy-features li:before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    margin-right: 0.75rem;
+}
+
+/* Ablation Grid */
+.ablation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.ablation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.ablation-card h4 {
+    font-size: 1.125rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.ablation-impact {
+    margin: 1.5rem 0;
+}
+
+.impact-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.impact-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.ablation-card p {
+    color: #475569;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+/* Background Section */
+.bg-light {
+    background: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .metrics-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .metrics-hero .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .metric-value {
+        font-size: 2.5rem;
+    }
+    
+    .strategy-grid,
+    .ablation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .performance-table {
+        font-size: 0.875rem;
+    }
+    
+    .performance-table th,
+    .performance-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}

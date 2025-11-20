@@ -46,7 +46,15 @@ class DiceCrossEntropyLoss(nn.Module):
         dims = tuple(range(2, probs.ndim))
         intersection = (probs * targets).sum(dim=dims)
         denom = probs.sum(dim=dims) + targets.sum(dim=dims)
+        
+        # Clamp to prevent numerical instability
+        intersection = torch.clamp(intersection, min=0)
+        denom = torch.clamp(denom, min=self.smooth)
+        
         dice_per_class = 1.0 - (2.0 * intersection + self.smooth) / (denom + self.smooth)
+        
+        # Clamp dice to valid range [0, 1]
+        dice_per_class = torch.clamp(dice_per_class, min=0.0, max=1.0)
 
         if class_weights is not None:
             weights = class_weights.to(dice_per_class.dtype)
@@ -62,7 +70,12 @@ class DiceCrossEntropyLoss(nn.Module):
             weight=None if class_weights is None else class_weights.unsqueeze(-1).unsqueeze(-1).unsqueeze(-1),
             reduction="mean",
         )
-        return dice + bce
+        
+        # Ensure both losses are valid
+        dice = torch.clamp(dice, min=0.0, max=1.0)
+        total_loss = dice + bce
+        
+        return total_loss
 
 
 @dataclass

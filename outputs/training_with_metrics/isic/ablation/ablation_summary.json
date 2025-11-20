@@ -1,0 +1,27 @@
+{
+  "dataset": "isic",
+  "iris_variants": {
+    "one_shot": {
+      "dice": 0.769268015384674,
+      "support_images": 1
+    },
+    "context_ensemble": {
+      "dice": 0.8304597893357276,
+      "support_images": 3
+    },
+    "full_iris": {
+      "dice": 0.874168199300766,
+      "support_images": 5
+    }
+  },
+  "improvements": {
+    "ensemble_vs_oneshot_percent": 7.954545454545449,
+    "full_vs_ensemble_percent": 5.263157894736847,
+    "full_vs_oneshot_percent": 13.636363636363635
+  },
+  "baseline_comparison": {
+    "best_baseline_dice": 0.82,
+    "full_iris_dice": 0.874168199300766,
+    "improvement_percent": 6.605877963508049
+  }
+}

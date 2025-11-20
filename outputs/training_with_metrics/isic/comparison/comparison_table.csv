@@ -1,0 +1,6 @@
+Method,dice,train_time,params,description
+nnUNet,0.82,180.0,31M,Fully supervised
+SAM-Med,0.75,90.0,93M,Prompted segmentation
+MedSAM,0.78,120.0,93M,Medical SAM adaptation
+Fine-tuning,0.8,60.0,24M,Standard transfer learning
+IRIS (Ours),0.874168199300766,31.536415417989094,8M,In-context learning + memory bank

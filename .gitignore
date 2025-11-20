@@ -18,6 +18,7 @@ __pycache__/
 
 # Generated datasets / secrets
 kaggle.json
+datasets/
 
 # Training/demo artefacts to keep local
 demo_outputs/**/checkpoints/

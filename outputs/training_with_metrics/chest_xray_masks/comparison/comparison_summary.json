@@ -1,0 +1,15 @@
+{
+  "dataset": "chest_xray_masks",
+  "iris_dice": 0.9581394016742706,
+  "baseline_avg_dice": 0.905,
+  "improvement_percent": 5.87175709107962,
+  "iris_training_time_minutes": 211.04752559661864,
+  "iris_parameters": "8M",
+  "comparison_methods": [
+    "nnUNet",
+    "SAM-Med",
+    "MedSAM",
+    "Fine-tuning",
+    "IRIS (Ours)"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "dataset": "isic",
+  "num_cases": 5,
+  "average_dice": 0.764861011505127,
+  "results": [
+    {
+      "case_id": 1,
+      "dice_score": 0.7967081665992737,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 2,
+      "dice_score": 0.6380325555801392,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 3,
+      "dice_score": 0.814723551273346,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 4,
+      "dice_score": 0.8271952867507935,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 5,
+      "dice_score": 0.7476454973220825,
+      "num_support_images": 3
+    }
+  ]
+}

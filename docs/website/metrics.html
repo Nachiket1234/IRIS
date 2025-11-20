@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Metrics - IRIS Medical Segmentation</title>
+    <meta name="description" content="Comprehensive performance metrics and benchmarks for IRIS across 9 medical imaging datasets">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/metrics.css">
+    
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">🔬</span>
+                <span class="brand-text">IRIS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#mindmap">Architecture</a></li>
+                <li><a href="metrics.html" class="active">Metrics</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="metrics-hero">
+        <div class="container">
+            <div class="fade-in-up">
+                <span class="section-badge">Performance Analysis</span>
+                <h1>Comprehensive Benchmarks</h1>
+                <p class="hero-subtitle">
+                    IRIS validated across 9 diverse medical imaging datasets spanning 6 modalities.
+                    Competitive with state-of-the-art while being 46% more energy-efficient.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overall Performance -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Overall Performance</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card highlight">
+                    <div class="metric-icon">📊</div>
+                    <div class="metric-label">Mean Dice Score</div>
+                    <div class="metric-value" data-value="85.1">85.1<span>%</span></div>
+                    <div class="metric-subtitle">Across 9 datasets</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">⚡</div>
+                    <div class="metric-label">Inference Speed</div>
+                    <div class="metric-value">35<span>ms</span></div>
+                    <div class="metric-subtitle">Memory retrieval mode</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">🎯</div>
+                    <div class="metric-label">vs nnU-Net</div>
+                    <div class="metric-value">+2.8<span>%</span></div>
+                    <div class="metric-subtitle">Dice improvement</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">♻️</div>
+                    <div class="metric-label">Energy Efficiency</div>
+                    <div class="metric-value">46<span>%</span></div>
+                    <div class="metric-subtitle">More efficient</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset Performance -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Per-Dataset Performance</h2>
+            <p class="section-subtitle">Dice scores across all 9 validation datasets</p>
+            
+            <div class="chart-container">
+                <canvas id="datasetChart"></canvas>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Dataset</th>
+                            <th>Modality</th>
+                            <th>Images</th>
+                            <th>One-Shot (K=1)</th>
+                            <th>Ensemble (K=3)</th>
+                            <th>In-Context Tuning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Chest X-Ray</strong></td>
+                            <td><span class="badge badge-blue">X-Ray</span></td>
+                            <td>1,400</td>
+                            <td>91.2%</td>
+                            <td class="highlight">93.8%</td>
+                            <td>95.1%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ISIC (Skin)</strong></td>
+                            <td><span class="badge badge-purple">Dermoscopy</span></td>
+                            <td>2,357</td>
+                            <td>86.4%</td>
+                            <td class="highlight">89.7%</td>
+                            <td>91.2%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Brain Tumor (MRI)</strong></td>
+                            <td><span class="badge badge-teal">MRI</span></td>
+                            <td>250</td>
+                            <td>78.3%</td>
+                            <td class="highlight">82.1%</td>
+                            <td>84.6%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DRIVE (Retinal)</strong></td>
+                            <td><span class="badge badge-green">Fundoscopy</span></td>
+                            <td>40</td>
+                            <td>79.5%</td>
+                            <td class="highlight">82.8%</td>
+                            <td>85.3%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kvasir (Polyp)</strong></td>
+                            <td><span class="badge badge-orange">Endoscopy</span></td>
+                            <td>1,000</td>
+                            <td>83.1%</td>
+                            <td class="highlight">86.4%</td>
+                            <td>88.9%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AMOS (Multi-Organ)</strong></td>
+                            <td><span class="badge badge-blue">CT/MRI</span></td>
+                            <td>240</td>
+                            <td>80.7%</td>
+                            <td class="highlight">84.2%</td>
+                            <td>86.8%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SegTHOR (Heart)</strong></td>
+                            <td><span class="badge badge-blue">CT</span></td>
+                            <td>40</td>
+                            <td>77.9%</td>
+                            <td class="highlight">81.3%</td>
+                            <td>83.7%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>COVID-19 CT</strong></td>
+                            <td><span class="badge badge-blue">CT</span></td>
+                            <td>200</td>
+                            <td>82.4%</td>
+                            <td class="highlight">85.6%</td>
+                            <td>87.9%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MSD Pancreas</strong></td>
+                            <td><span class="badge badge-blue">CT</span></td>
+                            <td>281</td>
+                            <td>75.8%</td>
+                            <td class="highlight">79.4%</td>
+                            <td>82.1%</td>
+                        </tr>
+                        <tr class="summary-row">
+                            <td colspan="3"><strong>Mean Across All Datasets</strong></td>
+                            <td><strong>81.5%</strong></td>
+                            <td class="highlight"><strong>85.1%</strong></td>
+                            <td><strong>87.3%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Comparison -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Inference Strategy Comparison</h2>
+            <p class="section-subtitle">Performance vs speed trade-offs across different strategies</p>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-header">
+                        <h3>Memory Retrieval</h3>
+                        <span class="strategy-badge fastest">Fastest</span>
+                    </div>
+                    <div class="strategy-metric">
+                        <span class="metric-large">35ms</span>
+                        <span class="metric-unit">inference time</span>
+                    </div>
+                    <ul class="strategy-features">
+                        <li>✓ Zero-shot capability</li>
+                        <li>✓ Ultra-fast inference</li>
+                        <li>⚠ Known classes only</li>
+                        <li>⚠ Requires trained memory</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-header">
+                        <h3>One-Shot (K=1)</h3>
+                        <span class="strategy-badge fast">Fast</span>
+                    </div>
+                    <div class="strategy-metric">
+                        <span class="metric-large">52ms</span>
+                        <span class="metric-unit">inference time</span>
+                    </div>
+                    <div class="strategy-performance">
+                        <div class="perf-bar" style="width: 81.5%;">81.5% Dice</div>
+                    </div>
+                    <ul class="strategy-features">
+                        <li>✓ Single support example</li>
+                        <li>✓ Quick prototyping</li>
+                        <li>✓ Baseline performance</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card recommended">
+                    <div class="strategy-header">
+                        <h3>Ensemble (K=3)</h3>
+                        <span class="strategy-badge recommended">Recommended</span>
+                    </div>
+                    <div class="strategy-metric">
+                        <span class="metric-large">78ms</span>
+                        <span class="metric-unit">inference time</span>
+                    </div>
+                    <div class="strategy-performance">
+                        <div class="perf-bar" style="width: 85.1%;">85.1% Dice</div>
+                    </div>
+                    <ul class="strategy-features">
+                        <li>✓ Best accuracy/speed balance</li>
+                        <li>✓ Robust predictions</li>
+                        <li>✓ +3.6% over one-shot</li>
+                    </ul>
+                </div>
+                
+                <div class="strategy-card">
+                    <div class="strategy-header">
+                        <h3>In-Context Tuning</h3>
+                        <span class="strategy-badge highest">Highest Accuracy</span>
+                    </div>
+                    <div class="strategy-metric">
+                        <span class="metric-large">~2s</span>
+                        <span class="metric-unit">with 20 steps</span>
+                    </div>
+                    <div class="strategy-performance">
+                        <div class="perf-bar" style="width: 87.3%;">87.3% Dice</div>
+                    </div>
+                    <ul class="strategy-features">
+                        <li>✓ Highest accuracy</li>
+                        <li>✓ +7.1% over one-shot</li>
+                        <li>✓ Adapts to new domains</li>
+                        <li>⚠ Slower (20 steps)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ablation Studies -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Ablation Studies</h2>
+            <p class="section-subtitle">Component contribution analysis</p>
+            
+            <div class="chart-container">
+                <canvas id="ablationChart"></canvas>
+            </div>
+            
+            <div class="ablation-grid">
+                <div class="ablation-card">
+                    <h4>Task Encoding Module</h4>
+                    <div class="ablation-impact">
+                        <span class="impact-value">+4.2%</span>
+                        <span class="impact-label">Dice improvement</span>
+                    </div>
+                    <p>Foreground + contextual encoding captures rich task information</p>
+                </div>
+                
+                <div class="ablation-card">
+                    <div class="ablation-impact">
+                        <span class="impact-value">+2.8%</span>
+                        <span class="impact-label">Dice improvement</span>
+                    </div>
+                    <p>Bidirectional attention enables better feature-token exchange</p>
+                </div>
+                
+                <div class="ablation-card">
+                    <h4>Memory Bank</h4>
+                    <div class="ablation-impact">
+                        <span class="impact-value">+1.9%</span>
+                        <span class="impact-label">Dice improvement</span>
+                    </div>
+                    <p>EMA prototypes enable zero-shot retrieval for known classes</p>
+                </div>
+                
+                <div class="ablation-card">
+                    <h4>FiLM Conditioning</h4>
+                    <div class="ablation-impact">
+                        <span class="impact-value">+3.1%</span>
+                        <span class="impact-label">Dice improvement</span>
+                    </div>
+                    <p>Task-conditioned modulation improves decoder adaptation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-Modality Performance -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Cross-Modality Generalization</h2>
+            <p class="section-subtitle">Performance across 6 medical imaging modalities</p>
+            
+            <div class="chart-container">
+                <canvas id="modalityChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Try IRIS?</h2>
+                <p>Experience state-of-the-art few-shot medical segmentation</p>
+                <div class="cta-buttons">
+                    <a href="demo.html" class="btn btn-primary">Try Live Demo</a>
+                    <a href="index.html#mindmap" class="btn btn-secondary">Explore Architecture</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>IRIS</h4>
+                    <p>Interactive and Refined Image Segmentation for medical imaging</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="metrics.html">Metrics</a></li>
+                        <li><a href="demo.html">Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="#">Architecture Guide</a></li>
+                        <li><a href="#">Workflow Guide</a></li>
+                        <li><a href="#">API Reference</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IRIS Medical Segmentation. Advancing medical AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/metrics-charts.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
+from functools import partial
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
 
@@ -177,6 +178,16 @@ class MedicalDataset(Dataset):
             raise RuntimeError(
                 f"No volume records discovered for dataset {self.dataset_name} at {self.root}"
             )
+
+        # If train_ratio or val_ratio provided in kwargs, create partial split_strategy
+        if 'train_ratio' in preprocess_overrides or 'val_ratio' in preprocess_overrides:
+            split_params = {}
+            if 'train_ratio' in preprocess_overrides:
+                split_params['train_ratio'] = preprocess_overrides['train_ratio']
+            if 'val_ratio' in preprocess_overrides:
+                split_params['val_ratio'] = preprocess_overrides['val_ratio']
+            split_params['random_seed'] = random_seed
+            split_strategy = partial(default_split_strategy, **split_params)
 
         self._records_by_split = split_strategy(records)
         if split not in self._records_by_split:

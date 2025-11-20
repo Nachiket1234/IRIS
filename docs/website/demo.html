@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Demo - IRIS Medical Segmentation</title>
+    <meta name="description" content="Try IRIS live medical image segmentation with your own images">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">🔬</span>
+                <span class="brand-text">IRIS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#mindmap">Architecture</a></li>
+                <li><a href="metrics.html">Metrics</a></li>
+                <li><a href="demo.html" class="active">Demo</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="demo-hero">
+        <div class="container">
+            <div class="fade-in-up">
+                <span class="section-badge">Interactive Demo</span>
+                <h1>Try IRIS Live</h1>
+                <p class="hero-subtitle">
+                    Upload medical images and see IRIS in action. Experience few-shot segmentation
+                    with different inference strategies.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Interface -->
+    <section class="section">
+        <div class="container">
+            <div class="demo-interface">
+                
+                <!-- Left Panel: Upload & Controls -->
+                <div class="demo-panel upload-panel">
+                    <h3>1. Upload Images</h3>
+                    
+                    <!-- Support Set Upload -->
+                    <div class="upload-section">
+                        <h4>Support Set (Examples)</h4>
+                        <p class="upload-description">Upload 1-3 annotated examples</p>
+                        <div class="upload-zone" id="support-upload">
+                            <div class="upload-icon">📁</div>
+                            <p>Drag & drop images here</p>
+                            <span class="upload-hint">or click to browse</span>
+                            <input type="file" id="support-file-input" accept="image/*" multiple hidden>
+                        </div>
+                        <div class="uploaded-files" id="support-files"></div>
+                    </div>
+                    
+                    <!-- Query Image Upload -->
+                    <div class="upload-section">
+                        <h4>Query Image</h4>
+                        <p class="upload-description">Image to segment</p>
+                        <div class="upload-zone" id="query-upload">
+                            <div class="upload-icon">🖼️</div>
+                            <p>Drag & drop query image</p>
+                            <span class="upload-hint">or click to browse</span>
+                            <input type="file" id="query-file-input" accept="image/*" hidden>
+                        </div>
+                        <div class="uploaded-files" id="query-file"></div>
+                    </div>
+                    
+                    <!-- Strategy Selection -->
+                    <div class="strategy-selection">
+                        <h4>2. Select Strategy</h4>
+                        <div class="strategy-options">
+                            <label class="strategy-option">
+                                <input type="radio" name="strategy" value="memory" checked>
+                                <div class="option-content">
+                                    <span class="option-name">Memory Retrieval</span>
+                                    <span class="option-speed">⚡ 35ms</span>
+                                    <span class="option-desc">Zero-shot (known classes)</span>
+                                </div>
+                            </label>
+                            
+                            <label class="strategy-option">
+                                <input type="radio" name="strategy" value="one-shot">
+                                <div class="option-content">
+                                    <span class="option-name">One-Shot (K=1)</span>
+                                    <span class="option-speed">⚡ 52ms</span>
+                                    <span class="option-desc">Single support example</span>
+                                </div>
+                            </label>
+                            
+                            <label class="strategy-option recommended">
+                                <input type="radio" name="strategy" value="ensemble">
+                                <div class="option-content">
+                                    <span class="option-name">Ensemble (K=3)</span>
+                                    <span class="option-speed">⚡ 78ms</span>
+                                    <span class="option-desc">Recommended balance</span>
+                                    <span class="rec-badge">Recommended</span>
+                                </div>
+                            </label>
+                            
+                            <label class="strategy-option">
+                                <input type="radio" name="strategy" value="tuning">
+                                <div class="option-content">
+                                    <span class="option-name">In-Context Tuning</span>
+                                    <span class="option-speed">⏱️ ~2s</span>
+                                    <span class="option-desc">Highest accuracy</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Run Button -->
+                    <button class="btn btn-primary btn-large" id="run-segmentation">
+                        <span class="btn-icon">🚀</span>
+                        Run Segmentation
+                    </button>
+                    
+                    <!-- Example Datasets -->
+                    <div class="example-datasets">
+                        <h4>Or try example datasets</h4>
+                        <div class="example-buttons">
+                            <button class="btn-example" data-dataset="chest-xray">
+                                Chest X-Ray
+                            </button>
+                            <button class="btn-example" data-dataset="isic">
+                                Skin Lesion
+                            </button>
+                            <button class="btn-example" data-dataset="brain-mri">
+                                Brain MRI
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Panel: Results -->
+                <div class="demo-panel results-panel">
+                    <h3>Results</h3>
+                    
+                    <!-- Placeholder State -->
+                    <div class="placeholder-state" id="placeholder">
+                        <div class="placeholder-icon">🎯</div>
+                        <h4>No Results Yet</h4>
+                        <p>Upload images and run segmentation to see results</p>
+                    </div>
+                    
+                    <!-- Results Content (Hidden initially) -->
+                    <div class="results-content" id="results" style="display: none;">
+                        
+                        <!-- Visualization Tabs -->
+                        <div class="viz-tabs">
+                            <button class="viz-tab active" data-tab="overlay">Overlay</button>
+                            <button class="viz-tab" data-tab="sidebyside">Side-by-Side</button>
+                            <button class="viz-tab" data-tab="mask">Mask Only</button>
+                            <button class="viz-tab" data-tab="confidence">Confidence</button>
+                        </div>
+                        
+                        <!-- Visualization Area -->
+                        <div class="viz-area">
+                            <div class="viz-panel active" id="tab-overlay">
+                                <canvas id="canvas-overlay"></canvas>
+                            </div>
+                            <div class="viz-panel" id="tab-sidebyside">
+                                <div class="side-by-side">
+                                    <div class="side-image">
+                                        <span class="side-label">Original</span>
+                                        <canvas id="canvas-original"></canvas>
+                                    </div>
+                                    <div class="side-image">
+                                        <span class="side-label">Segmentation</span>
+                                        <canvas id="canvas-segmented"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="viz-panel" id="tab-mask">
+                                <canvas id="canvas-mask"></canvas>
+                            </div>
+                            <div class="viz-panel" id="tab-confidence">
+                                <canvas id="canvas-confidence"></canvas>
+                                <div class="confidence-legend">
+                                    <span>Low</span>
+                                    <div class="legend-gradient"></div>
+                                    <span>High</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Metrics Display -->
+                        <div class="result-metrics">
+                            <div class="result-metric">
+                                <span class="metric-label">Dice Score</span>
+                                <span class="metric-value" id="dice-score">—</span>
+                            </div>
+                            <div class="result-metric">
+                                <span class="metric-label">IoU</span>
+                                <span class="metric-value" id="iou-score">—</span>
+                            </div>
+                            <div class="result-metric">
+                                <span class="metric-label">Inference Time</span>
+                                <span class="metric-value" id="inference-time">—</span>
+                            </div>
+                            <div class="result-metric">
+                                <span class="metric-label">Confidence</span>
+                                <span class="metric-value" id="confidence">—</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Download Button -->
+                        <button class="btn btn-secondary" id="download-results">
+                            <span class="btn-icon">💾</span>
+                            Download Results
+                        </button>
+                    </div>
+                    
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loading" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Processing segmentation...</p>
+                        <span class="loading-detail" id="loading-detail">Initializing model</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="how-it-works">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Upload Support Set</h4>
+                    <p>Provide 1-3 annotated examples (support set) of the target structure you want to segment.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Upload Query Image</h4>
+                    <p>Upload the new image where you want to perform segmentation.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Choose Strategy</h4>
+                    <p>Select an inference strategy based on your accuracy/speed requirements.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Run & Visualize</h4>
+                    <p>IRIS processes your images and provides interactive visualizations with performance metrics.</p>
+                </div>
+            </div>
+            
+            <!-- Technical Notes -->
+            <div class="tech-notes">
+                <h3>Technical Notes</h3>
+                <ul>
+                    <li><strong>Supported Formats:</strong> JPEG, PNG, DICOM (for medical images)</li>
+                    <li><strong>Image Size:</strong> Automatically resized to 256×256 or 512×512</li>
+                    <li><strong>Processing:</strong> All inference runs client-side (demo mode) or on secure server</li>
+                    <li><strong>Privacy:</strong> Uploaded images are not stored and are deleted after processing</li>
+                    <li><strong>Limitations:</strong> Demo limited to common anatomical structures. Full API available for custom deployments.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want Full API Access?</h2>
+                <p>Deploy IRIS in your clinical workflow with our comprehensive API</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                    <a href="metrics.html" class="btn btn-secondary">View Benchmarks</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>IRIS</h4>
+                    <p>Interactive and Refined Image Segmentation for medical imaging</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="metrics.html">Metrics</a></li>
+                        <li><a href="demo.html">Demo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <ul>
+                        <li><a href="#">Architecture Guide</a></li>
+                        <li><a href="#">Workflow Guide</a></li>
+                        <li><a href="#">API Reference</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IRIS Medical Segmentation. Advancing medical AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/demo.js"></script>
+</body>
+</html>

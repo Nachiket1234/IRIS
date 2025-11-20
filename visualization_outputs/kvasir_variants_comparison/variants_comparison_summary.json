@@ -1,0 +1,56 @@
+{
+  "dataset": "kvasir",
+  "num_cases": 5,
+  "average_dice": {
+    "oneshot": 0.4145844608545303,
+    "ensemble": 0.42482722401618955,
+    "full": 0.4662686914205551
+  },
+  "improvements": {
+    "ensemble_vs_oneshot": 2.470609520807201,
+    "full_vs_oneshot": 12.466514171682807,
+    "memory_bank_contribution": 9.754899182917306
+  },
+  "cases": [
+    {
+      "case": 1,
+      "oneshot_dice": 0.5565385222434998,
+      "ensemble_dice": 0.39912351965904236,
+      "full_dice": 0.4642032980918884,
+      "ensemble_improvement": -28.284655292124473,
+      "full_improvement": -16.590985252807407
+    },
+    {
+      "case": 2,
+      "oneshot_dice": 0.6714261770248413,
+      "ensemble_dice": 0.7873494625091553,
+      "full_dice": 0.7819438576698303,
+      "ensemble_improvement": 17.26523174863125,
+      "full_improvement": 16.460138795109874
+    },
+    {
+      "case": 3,
+      "oneshot_dice": 0.1869528591632843,
+      "ensemble_dice": 0.1879647821187973,
+      "full_dice": 0.21203652024269104,
+      "ensemble_improvement": 0.541271719535024,
+      "full_improvement": 13.417104820792664
+    },
+    {
+      "case": 4,
+      "oneshot_dice": 0.09643135964870453,
+      "ensemble_dice": 0.12641794979572296,
+      "full_dice": 0.19507534801959991,
+      "ensemble_improvement": 31.096305451108798,
+      "full_improvement": 102.29451158860702
+    },
+    {
+      "case": 5,
+      "oneshot_dice": 0.5615733861923218,
+      "ensemble_dice": 0.62328040599823,
+      "full_dice": 0.6780844330787659,
+      "ensemble_improvement": 10.98823792635633,
+      "full_improvement": 20.747252229389414
+    }
+  ]
+}

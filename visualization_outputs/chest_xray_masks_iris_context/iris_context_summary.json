@@ -1,0 +1,32 @@
+{
+  "dataset": "chest_xray_masks",
+  "num_cases": 5,
+  "average_dice": 0.9439724922180176,
+  "results": [
+    {
+      "case_id": 1,
+      "dice_score": 0.9435760378837585,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 2,
+      "dice_score": 0.9609795212745667,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 3,
+      "dice_score": 0.9592384696006775,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 4,
+      "dice_score": 0.9596102833747864,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 5,
+      "dice_score": 0.8964581489562988,
+      "num_support_images": 3
+    }
+  ]
+}

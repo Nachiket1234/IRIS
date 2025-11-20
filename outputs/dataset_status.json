@@ -21,6 +21,17 @@
     "test_count": 0,
     "error": "AMOS image directory not found: datasets\\amos\\imagesTr"
   },
+  "chest_xray_masks": {
+    "name": "chest_xray_masks",
+    "path": "datasets\\chest_xray_masks",
+    "exists": true,
+    "has_files": false,
+    "can_load": false,
+    "train_count": 0,
+    "val_count": 0,
+    "test_count": 0,
+    "error": "Images folder not found in datasets\\chest_xray_masks. Tried: ['datasets\\\\chest_xray_masks\\\\images', 'datasets\\\\chest_xray_masks\\\\images', 'datasets\\\\chest_xray_masks\\\\Images', 'datasets\\\\chest_xray_masks\\\\data\\\\images']"
+  },
   "msd_pancreas": {
     "name": "msd_pancreas",
     "path": "datasets\\msd_pancreas",
@@ -42,5 +53,16 @@
     "val_count": 0,
     "test_count": 0,
     "error": "SegTHOR images not found at datasets\\segthor\\images"
+  },
+  "isic": {
+    "name": "isic",
+    "path": "datasets\\isic",
+    "exists": true,
+    "has_files": false,
+    "can_load": true,
+    "train_count": 1768,
+    "val_count": 118,
+    "test_count": 471,
+    "error": null
   }
 }

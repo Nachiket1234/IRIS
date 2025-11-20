@@ -1,0 +1,56 @@
+{
+  "dataset": "chest_xray_masks",
+  "num_cases": 5,
+  "average_dice": {
+    "oneshot": 0.9909826874732971,
+    "ensemble": 0.9918192386627197,
+    "full": 0.9918223977088928
+  },
+  "improvements": {
+    "ensemble_vs_oneshot": 0.08441632734831697,
+    "full_vs_oneshot": 0.08473510649683573,
+    "memory_bank_contribution": 0.0003185102738433546
+  },
+  "cases": [
+    {
+      "case": 1,
+      "oneshot_dice": 0.990339457988739,
+      "ensemble_dice": 0.9946258068084717,
+      "full_dice": 0.9946337938308716,
+      "ensemble_improvement": 0.4328161202864448,
+      "full_improvement": 0.43362261368984034
+    },
+    {
+      "case": 2,
+      "oneshot_dice": 0.9882327914237976,
+      "ensemble_dice": 0.9882684350013733,
+      "full_dice": 0.988304078578949,
+      "ensemble_improvement": 0.003606799722191981,
+      "full_improvement": 0.007213599444383962
+    },
+    {
+      "case": 3,
+      "oneshot_dice": 0.9924783706665039,
+      "ensemble_dice": 0.9923593401908875,
+      "full_dice": 0.9923528432846069,
+      "ensemble_improvement": -0.011993256390718071,
+      "full_improvement": -0.012647870785604537
+    },
+    {
+      "case": 4,
+      "oneshot_dice": 0.9885997772216797,
+      "ensemble_dice": 0.988574206829071,
+      "full_dice": 0.9885822534561157,
+      "ensemble_improvement": -0.002586526236178665,
+      "full_improvement": -0.001772584413604959
+    },
+    {
+      "case": 5,
+      "oneshot_dice": 0.9952630400657654,
+      "ensemble_dice": 0.9952684044837952,
+      "full_dice": 0.9952390193939209,
+      "ensemble_improvement": 0.0005389950007015918,
+      "full_improvement": -0.0024134998364749058
+    }
+  ]
+}

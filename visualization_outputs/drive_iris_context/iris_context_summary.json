@@ -1,0 +1,27 @@
+{
+  "dataset": "drive",
+  "num_cases": 4,
+  "average_dice": 0.19961630925536156,
+  "results": [
+    {
+      "case_id": 1,
+      "dice_score": 0.19767379760742188,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 2,
+      "dice_score": 0.21532833576202393,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 3,
+      "dice_score": 0.2061363011598587,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 4,
+      "dice_score": 0.17932680249214172,
+      "num_support_images": 3
+    }
+  ]
+}

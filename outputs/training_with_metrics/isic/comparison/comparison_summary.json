@@ -1,0 +1,15 @@
+{
+  "dataset": "isic",
+  "iris_dice": 0.874168199300766,
+  "baseline_avg_dice": 0.7874999999999999,
+  "improvement_percent": 11.005485625494108,
+  "iris_training_time_minutes": 31.536415417989094,
+  "iris_parameters": "8M",
+  "comparison_methods": [
+    "nnUNet",
+    "SAM-Med",
+    "MedSAM",
+    "Fine-tuning",
+    "IRIS (Ours)"
+  ]
+}

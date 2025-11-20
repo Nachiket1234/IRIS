@@ -1,0 +1,32 @@
+{
+  "dataset": "brain_tumor",
+  "num_cases": 5,
+  "average_dice": 0.4410134255886078,
+  "results": [
+    {
+      "case_id": 1,
+      "dice_score": 0.7484719157218933,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 2,
+      "dice_score": 0.3767082691192627,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 3,
+      "dice_score": 0.3062240183353424,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 4,
+      "dice_score": 0.18779516220092773,
+      "num_support_images": 3
+    },
+    {
+      "case_id": 5,
+      "dice_score": 0.5858677625656128,
+      "num_support_images": 3
+    }
+  ]
+}

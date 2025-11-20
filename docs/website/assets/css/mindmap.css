@@ -1,0 +1,517 @@
+/* ===== MINDMAP SECTION ===== */
+.mindmap-section {
+    background: var(--bg-dark);
+    padding: 4rem 0;
+    min-height: 100vh;
+}
+
+.mindmap-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mindmap-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-base);
+    font-family: var(--font-primary);
+}
+
+.control-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn svg {
+    flex-shrink: 0;
+}
+
+/* ===== MINDMAP CANVAS ===== */
+.mindmap-canvas {
+    width: 100%;
+    height: 800px;
+    background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.05) 0%, transparent 70%),
+                var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== D3 NODES & LINKS ===== */
+.mindmap-node {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mindmap-node circle {
+    stroke-width: 2.5px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.mindmap-node:hover circle {
+    stroke-width: 3.5px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+.mindmap-node.root circle {
+    fill: url(#gradient-root);
+    stroke: #00d4ff;
+    r: 60;
+}
+
+.mindmap-node.level-1 circle {
+    fill: url(#gradient-level1);
+    stroke: #0066ff;
+    r: 45;
+}
+
+.mindmap-node.level-2 circle {
+    fill: url(#gradient-level2);
+    stroke: #667eea;
+    r: 35;
+}
+
+.mindmap-node.level-3 circle {
+    fill: var(--bg-card);
+    stroke: #f5576c;
+    r: 25;
+}
+
+.mindmap-node.expanded circle {
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 20px currentColor);
+}
+
+.mindmap-node.collapsed circle {
+    opacity: 0.7;
+}
+
+.mindmap-node text {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 13px;
+    fill: white;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+    user-select: none;
+}
+
+.mindmap-node.root text {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.mindmap-node.level-1 text {
+    font-size: 14px;
+}
+
+.mindmap-node.level-2 text {
+    font-size: 12px;
+}
+
+.mindmap-node.level-3 text {
+    font-size: 11px;
+}
+
+/* Multi-line text */
+.mindmap-node tspan {
+    display: block;
+}
+
+/* ===== LINKS (Connections) ===== */
+.mindmap-link {
+    fill: none;
+    stroke-width: 2px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.mindmap-link.link-level-1 {
+    stroke: url(#gradient-link1);
+}
+
+.mindmap-link.link-level-2 {
+    stroke: url(#gradient-link2);
+}
+
+.mindmap-link.link-level-3 {
+    stroke: url(#gradient-link3);
+}
+
+.mindmap-link:hover {
+    opacity: 1;
+    stroke-width: 3px;
+}
+
+/* Animated link glow */
+.mindmap-link.active {
+    stroke-width: 3px;
+    opacity: 1;
+    animation: linkPulse 2s ease-in-out infinite;
+}
+
+@keyframes linkPulse {
+    0%, 100% {
+        opacity: 0.6;
+        stroke-width: 2px;
+    }
+    50% {
+        opacity: 1;
+        stroke-width: 3.5px;
+    }
+}
+
+/* ===== NODE DETAILS PANEL ===== */
+.node-details-panel {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 350px;
+    max-height: calc(100% - 4rem);
+    background: rgba(21, 27, 46, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-xl);
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.node-details-panel.active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.node-details-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.node-details-panel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.node-details-panel::-webkit-scrollbar-thumb {
+    background: rgba(0, 102, 255, 0.5);
+    border-radius: 3px;
+}
+
+.node-details-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 102, 255, 0.7);
+}
+
+.details-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.details-header h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: var(--transition-fast);
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.details-content {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.details-content p {
+    margin-bottom: 1rem;
+}
+
+.details-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.details-content li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.details-content li:last-child {
+    border-bottom: none;
+}
+
+.details-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 102, 255, 0.2);
+    border: 1px solid rgba(0, 102, 255, 0.4);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--primary-light);
+    margin-top: 0.5rem;
+}
+
+.details-metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: rgba(0, 102, 255, 0.05);
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.metric-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.metric-value {
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* ===== NODE TYPE INDICATORS ===== */
+.node-type-architecture {
+    fill: url(#gradient-architecture);
+}
+
+.node-type-inference {
+    fill: url(#gradient-inference);
+}
+
+.node-type-validation {
+    fill: url(#gradient-validation);
+}
+
+.node-type-implementation {
+    fill: url(#gradient-implementation);
+}
+
+/* ===== ZOOM & PAN CONTROLS ===== */
+.mindmap-zoom-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 50;
+}
+
+.zoom-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoom-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== LOADING STATE ===== */
+.mindmap-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.mindmap-loading .spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(0, 102, 255, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.mindmap-loading p {
+    margin-top: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* ===== TOOLTIP ===== */
+.mindmap-tooltip {
+    position: absolute;
+    padding: 0.75rem 1rem;
+    background: rgba(10, 14, 26, 0.95);
+    border: 1px solid var(--primary-light);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+    max-width: 300px;
+}
+
+.mindmap-tooltip.active {
+    opacity: 1;
+}
+
+.mindmap-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--primary-light);
+}
+
+/* ===== REFERENCE NUMBERS ===== */
+.reference-numbers {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-left: 3px solid var(--secondary);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes nodeAppear {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.mindmap-node {
+    animation: nodeAppear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes linkDraw {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.mindmap-link {
+    stroke-dasharray: 1000;
+    animation: linkDraw 1s ease-out forwards;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .node-details-panel {
+        width: 300px;
+    }
+    
+    .mindmap-canvas {
+        height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .node-details-panel {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        max-height: 60vh;
+        border-radius: 20px 20px 0 0;
+        transform: translateY(100%);
+    }
+    
+    .node-details-panel.active {
+        transform: translateY(0);
+    }
+    
+    .mindmap-canvas {
+        height: 500px;
+    }
+    
+    .mindmap-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .control-btn {
+        justify-content: center;
+    }
+}

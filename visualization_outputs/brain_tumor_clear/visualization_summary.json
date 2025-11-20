@@ -1,0 +1,57 @@
+{
+  "dataset": "brain_tumor",
+  "num_cases": 10,
+  "average_dice": 0.5362494751811028,
+  "results": [
+    {
+      "case_id": 1,
+      "dice_score": 0.8565305471420288,
+      "output_file": "case_001_comparison.png"
+    },
+    {
+      "case_id": 2,
+      "dice_score": 0.4406281113624573,
+      "output_file": "case_002_comparison.png"
+    },
+    {
+      "case_id": 3,
+      "dice_score": 0.5556083917617798,
+      "output_file": "case_003_comparison.png"
+    },
+    {
+      "case_id": 4,
+      "dice_score": 0.39828091859817505,
+      "output_file": "case_004_comparison.png"
+    },
+    {
+      "case_id": 5,
+      "dice_score": 0.6383644938468933,
+      "output_file": "case_005_comparison.png"
+    },
+    {
+      "case_id": 6,
+      "dice_score": 0.1988012045621872,
+      "output_file": "case_006_comparison.png"
+    },
+    {
+      "case_id": 7,
+      "dice_score": 0.559586763381958,
+      "output_file": "case_007_comparison.png"
+    },
+    {
+      "case_id": 8,
+      "dice_score": 0.8096532225608826,
+      "output_file": "case_008_comparison.png"
+    },
+    {
+      "case_id": 9,
+      "dice_score": 0.9050410985946655,
+      "output_file": "case_009_comparison.png"
+    },
+    {
+      "case_id": 10,
+      "dice_score": 0.0,
+      "output_file": "case_010_comparison.png"
+    }
+  ]
+}
