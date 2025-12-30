@@ -16,6 +16,33 @@ IRIS V2 is a full-stack implementation of the **Imaging Retrieval via In-context
 - 🖼️ **Visualisation Toolkit** for multi-planar overlays, dashboards, and training curves.
 
 ---
+## Visuals
+<!-- Two-column row with equal-width images -->
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/14a5c470-5d8c-48d2-b3fe-16521a69931b" width="620" alt="IRIS Home" />
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/095480d2-6df7-41e8-b8c7-693594bfcf9f" width="420" alt="IRIS Live Demo" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><strong>IRIS Home</strong> — overview, performance metrics, architecture map, and links to demo and docs.</td>
+    <td align="center"><strong>IRIS Live Demo</strong> — upload support/query images, choose evidence strategy, run segmentation, and view metrics.</td>
+  </tr>
+</table>
+
+<!-- Full-width third image below -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d0e20e70-f001-4553-8bb8-d2747b40b768" width="880" alt="IRIS In-Context Learning Brain Tumor" />
+</p>
+
+<p align="center"><strong>IRIS In-Context Learning</strong> — support / query / prediction / ground-truth overlays and overlap visualization for brain MRI cases.</p>
+
+
+
+
 
 ## Repository Structure
 
